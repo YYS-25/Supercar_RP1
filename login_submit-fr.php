@@ -21,7 +21,7 @@ $password = $conn->real_escape_string($password);
 // $result = $conn->query($sql);
 
 // ✅ Check if user exists
-$sql = "SELECT id, prenom, nom, username, email, password FROM users WHERE username='$username' OR email='$username'";
+$sql = "SELECT id, prenom, nom, username, email, phone, password FROM users WHERE username='$username' OR email='$username'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -37,6 +37,7 @@ if ($result->num_rows > 0) {
         $_SESSION['nom'] = $row['nom'];
         $_SESSION['username'] = $row['username'];
         $_SESSION['email'] = $row['email'];
+        $_SESSION['phone'] = $row['phone'];
 
         // Redirect to previous page or default
         $redirect_page = $_SESSION['redirect_to'] ?? 'index-fr.php';
