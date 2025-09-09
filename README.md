@@ -27,10 +27,23 @@ Built as part of the **BTS SIO SLAM** curriculum, it combines database managemen
 
 ---
 
-## Roadmap
-- SEO optimization for better visibility  
-- Secure online purchase integration  
-- Multilingual support for global reach   
+## Project Roadmap
+
+**Completed**
+- Planning: Created Gantt chart to schedule tasks and MCD for database planning
+- Database: Creation of database
+- Backend: Implemented PHP CRUD for car management
+- Frontend: Developed homepage and services pages using HTML, CSS, JS, Bootstrap for a bilingual audience (EN/FR)
+- Admin Panel: Built admin interface with Bootstrap
+- Authentication: Login & signup system connected to MySQL
+- Content Management: Editable content of the whole site in admin panel
+- Testing: Verified CRUD operations & authentication
+
+**Planned**
+- SEO optimization for better online visibility
+- Secure online purchase integration
+- Multilingual support for wider audience
+  
 
 ---
 
