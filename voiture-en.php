@@ -238,630 +238,631 @@ while ($row = $result->fetch_assoc()) {
 
 
                 
-/* Start Navbar */
-    /* Custom Navbar */
-    .custom-navbar {
-        background-color: #101010; /* Dark Background */
-        padding: 15px 0;
-        width: 100vw;
-        overflow: hidden;
-        height: 66px;
-        z-index: 1000 !important;
-    }
-
-    .navbar {
-        position: sticky;
-        z-index: 1000 !important;
-        overflow: visible !important;
-        background-color: #101010;
-    }
-
-    /* Navbar Brand */
-    .navbar-brand {
-        font-size: 1.5rem;
-        color: white;
-        display: flex;
-        align-items: center;
-    }
-
-    /* Logo Styling */
-    .navbar-logo {
-        height: 40px;
-        padding-right: 5px;
-        width: auto;
-        margin-right: 10px;
-    }
-
-    /* Nav Links */
-    .navbar-nav .nav-link {
-        color: white !important;
-        font-size: 1rem;
-        transition: color 0.3s ease-in-out;
-    }
-
-    .navbar-nav .nav-link:hover {
-        color: crimson !important;
-    }
-
-    /* Active Link */
-    .navbar-nav .nav-link.active {
-        color: crimson !important;
-        font-weight: bold;
-    }
-
-    /* Search Bar */
-        .search{
-            margin-bottom: auto;
-            margin-top: auto;
-            height: 30px;
-            background-color: #fff;
-            border-radius: 40px;
-            padding: 10px;
-        }
-
-        .search_input{
-            color: crimson;
-            border: 0;
-            outline: 0;
-            background: none;
-            width: 0;
-            margin-top:-4.5px;
-            caret-color:#101010;
-            line-height: 5px;
-            transition: width 0.4s linear;
-            font-size: small;
-            display:flex;
-            align-items: center;
-        }
-
-        /* Remove the outline (light blue border) on focus */
-        .search_input:focus {
-            outline: none !important;
-            border: none !important;  
-            box-shadow: none !important;
-        }
-
-        .search .search_input{
-            padding: 0 10px;
-            width: 250px;
-            caret-color:#E5E4E2;
-            transition: width 0.4s linear;
-        }
-            
-        .search:hover > .search_icon{
-            background: white;
-            color: #fff;
-            transition: ease 0.3s;
-        }
-
-        .search_icon{
-            height: 27px;
-            width: 27px;
-            float: right;
-            margin-top: -21px;
-            margin-right: -7px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            color:white;
-            background-color:crimson;
-            border: none !important;
-        }
-
-        .sear-img {
-        height: 80%;
-        width: 80%;
-        }
-            
-        a:link{
-            text-decoration:none;
-        }  
-
-        #searchCar:focus {
-            width: 250px;
-            transition: width 0.4s linear;
-            border: none !important;
-        }
-        #searchCar.search_input:focus{
-            border: none !important;
-        }
-
-        /* Search Suggestions */
-        .search-suggestions {
-            position: absolute;
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            transform: translateX(-3.5%);
-            width: 100%;
-            max-width: 300px;
-            max-height: 200px;
-            overflow-y: hidden;
-            display: none;
-            z-index: 1050;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            top: 110%; 
-        }
-
-        .search-suggestions div {
-            padding: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .search-suggestions div:hover {
-            background-color: #fac623; /* Highlight on hover */
-            color: #101010;
-        }
-        
-    /* End Search */
-
-        .lang-but {
-            border: none;
-            margin-right: 5%;
-            padding: 0;
-            background: #101010;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lang-but img {
-            /* height: 100%;
-            width: 100%; */
-            height: 35px; 
-            width: auto;  
-            border-radius: 40px; 
-            transition: transform 0.2s ease-in-out; 
-        }
-
-        .lang-but:hover img {
-            transform: scale(1.0); /* Slight zoom on hover */
-        }
-        
-
-        /* Buttons */
-        .btn-light {
-            background-color: #E5E4E2;
-            color: #101010;
-            border: none;
-            transition: 0.3s;
-        }
-
-        .btn-light:hover {
-            background-color: crimson;
-            color: white;
-        }
-
-        /* General Dropdown Styling*/
-        .dropdown {
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        /* Style for both Language and Account Buttons */
-        .navbar .btn-light,
-        .navbar .btn-outline-light {
-            background-color: #101010;
-            color: white;
-            border: 2px solid white;
-            padding: 8px 15px;
-            font-size: 14px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 1.5s;
-        }
-
-        /* Hover Effects */
-        .navbar .btn-light:hover,
-        .navbar .btn-outline-light:hover {
-            background-color: crimson;
-            color: white;
-            border-color: #101010;
-        }
-
-        /* Remove the focus outline on the Account button */
-        .btn-outline-light:focus, 
-        .btn-outline-light:active, 
-        .btn-outline-light:focus-visible {
-            outline: none !important;
-            box-shadow: none !important;
-            border-color: white !important; /* Keeps border consistent */
-        }
-
-
-        /* Make dropdown width adjust dynamically */
-        .dropdown-menu {
-            background-color: #F2F2F2;
-            color: #101010 !important;
-            /* border: none; */
-            display: none;
-            margin: 0 auto;
-            text-align: center;
-            min-width: 90px !important;
-            /* padding: 5px 8px; */
-            border-radius: 10px !important; 
-            width: auto; 
-        }
-
-        /* Adjust dropdown positioning */
-        .dropdown-menu[data-bs-popper] {
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-        }
-
-
-        /* Dropdown Items */
-        .dropdown-item {
-            padding: 5px 10px;
-            text-align: center !important;
-            font-size: 14px;
-        }
-
-        .dropdown-item ul {
-            background-color: crimson;
-        }
-
-        .dropdown-menu li a{
-            margin: 0 auto;
-            padding: 5px;
-            width: 80%;
-            display: block; /* Make the item a block to fill the width */
-        }
-
-        .dropdown-menu.show .dmenu {
-            display: flex;
-            align-items: center;
-            border: none;
-        }
-
-        .dropdown-menu.show {
-            z-index: 9999 !important;
-            overflow: visible !important;
-        }
-
-        .dropdown-menu.show ul{
-            display: block;
-            width: 40px !important;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 992px) {
-            .navbar-nav {
-                text-align: center;
-                padding-top: 10px;
-            }
-
-            /* Full width for dropdowns on small screens */
-            .dropdown,
-            .search-input,
-            .lang-but {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                padding-top: 15px;
+        /* Start Navbar */
+            /* Custom Navbar */
+            .custom-navbar {
+                background-color: #101010; /* Dark Background */
+                padding: 15px 0;
+                width: 100vw;
+                overflow: hidden;
+                height: 66px;
+                z-index: 1000 !important;
             }
 
             .navbar {
-                background-color: #101010 !important; /* Dark background */
-            }
-
-            .x6 {
+                position: sticky;
+                z-index: 1000 !important;
+                overflow: visible !important;
                 background-color: #101010;
             }
-        }
 
-        .dropdown-item1 {
-        display: block;
-        width: 100% !important;
-        /* padding: 10px; */
-        clear: both;
-        font-weight: 400;
-        color: var(--bs-dropdown-link-color);
-        text-align: center !important;
-        text-decoration: none;
-        white-space: nowrap;
-        background-color: #101010;
-        border: 0;
-        font-size: 14px;
-        }
+            /* Navbar Brand */
+            .navbar-brand {
+                font-size: 1.5rem;
+                color: white;
+                display: flex;
+                align-items: center;
+            }
 
-        .dropdown-item1:hover {
-        color: var(--bs-dropdown-link-hover-color);
-        text-decoration: none;
-        background-color: var(--bs-dropdown-link-hover-bg);
-        }
+            /* Logo Styling */
+            .navbar-logo {
+                height: 40px;
+                padding-right: 5px;
+                width: auto;
+                margin-right: 10px;
+            }
 
-        .dmenu {
-            width: 100%;
-            z-index: 999 !important;
-        }
-        /* End Buttons */
+            /* Nav Links */
+            .navbar-nav .nav-link {
+                color: white !important;
+                font-size: 1rem;
+                transition: color 0.3s ease-in-out;
+            }
 
-    /* End Dropdown */
+            .navbar-nav .nav-link:hover {
+                color: crimson !important;
+            }
 
-    /* Responsive Navbar */
-    @media (max-width: 992px) {
-        .navbar-nav {
-            text-align: center;
-            padding-top: 10px;
-        }
-        .dropdown, .search-input {
-            width: 100%;
-        }
-    }
-/* End Navbar */
+            /* Active Link */
+            .navbar-nav .nav-link.active {
+                color: crimson !important;
+                font-weight: bold;
+            }
+
+            /* Search Bar */
+                .search{
+                    margin-bottom: auto;
+                    margin-top: auto;
+                    height: 30px;
+                    background-color: #fff;
+                    border-radius: 40px;
+                    padding: 10px;
+                }
+
+                .search_input{
+                    color: crimson;
+                    border: 0;
+                    outline: 0;
+                    background: none;
+                    width: 0;
+                    margin-top:-4.5px;
+                    caret-color:#101010;
+                    line-height: 5px;
+                    transition: width 0.4s linear;
+                    font-size: small;
+                    display:flex;
+                    align-items: center;
+                }
+
+                /* Remove the outline (light blue border) on focus */
+                .search_input:focus {
+                    outline: none !important;
+                    border: none !important;  
+                    box-shadow: none !important;
+                }
+
+                .search .search_input{
+                    padding: 0 10px;
+                    width: 250px;
+                    caret-color:#E5E4E2;
+                    transition: width 0.4s linear;
+                }
+                    
+                .search:hover > .search_icon{
+                    background: white;
+                    color: #fff;
+                    transition: ease 0.3s;
+                }
+
+                .search_icon{
+                    height: 27px;
+                    width: 27px;
+                    float: right;
+                    margin-top: -21px;
+                    margin-right: -7px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    color:white;
+                    background-color:crimson;
+                    border: none !important;
+                }
+
+                .sear-img {
+                height: 80%;
+                width: 80%;
+                }
+                    
+                a:link{
+                    text-decoration:none;
+                }  
+
+                #searchCar:focus {
+                    width: 250px;
+                    transition: width 0.4s linear;
+                    border: none !important;
+                }
+                #searchCar.search_input:focus{
+                    border: none !important;
+                }
+
+                /* Search Suggestions */
+                .search-suggestions {
+                    position: absolute;
+                    background-color: white;
+                    border: 1px solid #ccc;
+                    border-radius: 10px;
+                    transform: translateX(-3.5%);
+                    width: 100%;
+                    max-width: 300px;
+                    max-height: 200px;
+                    overflow-y: hidden;
+                    display: none;
+                    z-index: 1050;
+                    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+                    top: 110%; 
+                }
+
+                .search-suggestions div {
+                    padding: 8px;
+                    cursor: pointer;
+                    transition: background 0.3s;
+                }
+
+                .search-suggestions div:hover {
+                    background-color: #fac623; /* Highlight on hover */
+                    color: #101010;
+                }
+                
+            /* End Search */
+
+                .lang-but {
+                    border: none;
+                    margin-right: 5%;
+                    padding: 0;
+                    background: #101010;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .lang-but img {
+                    /* height: 100%;
+                    width: 100%; */
+                    height: 35px; 
+                    width: auto;  
+                    border-radius: 40px; 
+                    transition: transform 0.2s ease-in-out; 
+                }
+
+                .lang-but:hover img {
+                    transform: scale(1.0); /* Slight zoom on hover */
+                }
+                
+
+                /* Buttons */
+                .btn-light {
+                    background-color: #E5E4E2;
+                    color: #101010;
+                    border: none;
+                    transition: 0.3s;
+                }
+
+                .btn-light:hover {
+                    background-color: crimson;
+                    color: white;
+                }
+
+                /* General Dropdown Styling*/
+                .dropdown {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                }
+
+                /* Style for both Language and Account Buttons */
+                .navbar .btn-light,
+                .navbar .btn-outline-light {
+                    background-color: #101010;
+                    color: white;
+                    border: 2px solid white;
+                    padding: 8px 15px;
+                    font-size: 14px;
+                    border-radius: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    transition: 1.5s;
+                }
+
+                /* Hover Effects */
+                .navbar .btn-light:hover,
+                .navbar .btn-outline-light:hover {
+                    background-color: crimson;
+                    color: white;
+                    border-color: #101010;
+                }
+
+                /* Remove the focus outline on the Account button */
+                .btn-outline-light:focus, 
+                .btn-outline-light:active, 
+                .btn-outline-light:focus-visible {
+                    outline: none !important;
+                    box-shadow: none !important;
+                    border-color: white !important; /* Keeps border consistent */
+                }
 
 
-/* Start SideFilter */
-    .sidefilter {
-        background-color: #F2F2F2;
-        padding: 15px;
-        border-radius: 0px;
-        height: auto;
-        width: 250px;
-        position: sticky;
-        top: 0;
-        z-index: 999;
-        overflow: hidden;
-        margin-bottom: 20px;
-    }
+                /* Make dropdown width adjust dynamically */
+                .dropdown-menu {
+                    background-color: #F2F2F2;
+                    color: #101010 !important;
+                    /* border: none; */
+                    display: none;
+                    margin: 0 auto;
+                    text-align: center;
+                    min-width: 90px !important;
+                    /* padding: 5px 8px; */
+                    border-radius: 10px !important; 
+                    width: auto; 
+                }
 
-    .x2 {
-        display: flex;
-        justify-content: space-between;
-    }
+                /* Adjust dropdown positioning */
+                .dropdown-menu[data-bs-popper] {
+                    left: 50% !important;
+                    transform: translateX(-50%) !important;
+                }
 
-    .x3{
-        width: 100%;
-    }
 
-    @media (min-width: 2560px) {
+                /* Dropdown Items */
+                .dropdown-item {
+                    padding: 5px 10px;
+                    text-align: center !important;
+                    font-size: 14px;
+                }
+
+                .dropdown-item ul {
+                    background-color: crimson;
+                }
+
+                .dropdown-menu li a{
+                    margin: 0 auto;
+                    padding: 5px;
+                    width: 80%;
+                    display: block; /* Make the item a block to fill the width */
+                }
+
+                .dropdown-menu.show .dmenu {
+                    display: flex;
+                    align-items: center;
+                    border: none;
+                }
+
+                .dropdown-menu.show {
+                    z-index: 9999 !important;
+                    overflow: visible !important;
+                }
+
+                .dropdown-menu.show ul{
+                    display: block;
+                    width: 40px !important;
+                }
+
+                /* Responsive Adjustments */
+                @media (max-width: 992px) {
+                    .navbar-nav {
+                        text-align: center;
+                        padding-top: 10px;
+                    }
+
+                    /* Full width for dropdowns on small screens */
+                    .dropdown,
+                    .search-input,
+                    .lang-but {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        padding-top: 15px;
+                    }
+
+                    .navbar {
+                        background-color: #101010 !important; /* Dark background */
+                    }
+
+                    .x6 {
+                        background-color: #101010;
+                    }
+                }
+
+                .dropdown-item1 {
+                display: block;
+                width: 100% !important;
+                /* padding: 10px; */
+                clear: both;
+                font-weight: 400;
+                color: var(--bs-dropdown-link-color);
+                text-align: center !important;
+                text-decoration: none;
+                white-space: nowrap;
+                background-color: #101010;
+                border: 0;
+                font-size: 14px;
+                }
+
+                .dropdown-item1:hover {
+                color: var(--bs-dropdown-link-hover-color);
+                text-decoration: none;
+                background-color: var(--bs-dropdown-link-hover-bg);
+                }
+
+                .dmenu {
+                    width: 100%;
+                    z-index: 999 !important;
+                }
+                /* End Buttons */
+
+            /* End Dropdown */
+
+            /* Responsive Navbar */
+            @media (max-width: 992px) {
+                .navbar-nav {
+                    text-align: center;
+                    padding-top: 10px;
+                }
+                .dropdown, .search-input {
+                    width: 100%;
+                }
+            }
+        /* End Navbar */
+
+
+        /* Start SideFilter */
             .sidefilter {
+                background-color: #F2F2F2;
+                padding: 15px;
+                border-radius: 0px;
+                height: auto;
                 width: 250px;
-                height: 100%;
-                margin-bottom: 20vh;
-                position: fixed;
-                padding-top: 425px;
+                position: sticky;
+                top: 0;
+                z-index: 999;
+                overflow: hidden;
+                margin-bottom: 20px;
+            }
+
+            .x2 {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .x3{
+                width: 100%;
+            }
+
+            @media (min-width: 2560px) {
+                    .sidefilter {
+                        width: 250px;
+                        height: 100%;
+                        margin-bottom: 20vh;
+                        position: fixed;
+                        padding-top: 425px;
+                    }
+                }
+
+            @media (min-width: 1024px) and (max-width: 1440px) {
+                .sidefilter {
+                    height: 100%;
+                    margin-left: -12vh;
+                    margin-bottom: 20vh;
+                    position: fixed;
+                    padding-top: 225px;
+                }
+
+                .image-container {
+                    height: 200px;
+                }
+                .card-img-top {
+                    height: 200px;
+                }
+
+                /* .navbar {
+                    width: 110% !important;
+                } */
+
+                #carContainer {
+                    width: 75vw;
+                }
+                
+            }
+            
+            @media (min-width: 987px) and (max-width: 1024px) {
+                .sidefilter {
+                    height: 100%;
+                    width: 190px;
+                    margin-left: -5vh;
+                    margin-bottom: 20vh;
+                    position: fixed;
+                    padding: 8px;
+                    padding-top: 200px;
+                }
+                
+            }
+
+            @media (max-width: 987px) {
+            .x2 {
+                flex-direction: column; 
+            }
+
+            .sidefilter {
+                width: 50% !important;
+                margin: 0 auto;
+                margin-bottom: 15px;
+                padding: 10px;
+                }
+
+                .col-12 {
+                    margin-bottom: 15px; 
+                }
+
+                .w-100 {
+                    width: 100% !important; 
+                }
+            }
+
+            @media (min-width: 768px) and (max-width: 987px) {
+                /* Stack the sidefilter on top */
+                .container .row {
+                    flex-direction: row; 
+                }
+
+                .sidefilter {
+                    width: 100%; 
+                    padding: 10px;
+                    align-items: normal;
+                }
+
+                .col-12 {
+                    margin-bottom: 15px;
+                }
+
+                .w-100 {
+                    width: 100% !important; 
+                }
+
+                .image-container {
+                    height: 200px;
+                }
+
+                .x7 {
+                    display: flex;
+                    align-items: center;
+                }
+
+                #carContainer {
+                    width: 100vw;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .image-container {
+                    height: 200px;
+                }
+                .card-img-top {
+                    height: 200px;
+                }
+            }
+
+            @media (min-width: 768px) and (max-width: 1024px) {
+            .card {
+                font-size: small;
+            }
+
+            .card h5 {
+                font-size: medium;
+            }
+
+            .card p {
+                font-size: small;
+            }
+
+            .card .card-text span {
+                font-size: medium !important;
+            }
+
+            .card .btn {
+                font-size: small;
+            }
+
+            .card .btn-explore {
+                height: 34px;
             }
         }
 
-    @media (min-width: 1024px) and (max-width: 1440px) {
-        .sidefilter {
-            height: 100%;
-            margin-left: -12vh;
-            margin-bottom: 20vh;
-            position: fixed;
-            padding-top: 225px;
+
+        .txt-color{
+            color: crimson;
         }
 
-        .image-container {
-            height: 200px;
-        }
-        .card-img-top {
-            height: 200px;
-        }
-
-        /* .navbar {
-            width: 110% !important;
-        } */
-
-        #carContainer {
-            width: 75vw;
-        }
-        
-    }
-    
-    @media (min-width: 987px) and (max-width: 1024px) {
-        .sidefilter {
-            height: 100%;
-            width: 190px;
-            margin-left: -5vh;
-            margin-bottom: 20vh;
-            position: fixed;
-            padding: 8px;
-            padding-top: 200px;
-        }
-        
-    }
-
-    @media (max-width: 987px) {
-    .x2 {
-        flex-direction: column; 
-    }
-
-    .sidefilter {
-        width: 50% !important;
-        margin: 0 auto;
-        margin-bottom: 15px;
-        padding: 10px;
+        .btn-explore {
+            background-color: #fac623;
+            /* margin-top: -10px; */
+            position: relative;
+            height: 38px;
+            top: 5px;
         }
 
-        .col-12 {
-            margin-bottom: 15px; 
+        .btn-explore:hover {
+            background-color: #ebb000;
+            box-shadow: inset 0px 5px 8px rgba(0, 0, 0, 0.5), inset 0px -8px 8px rgba(255, 255, 255, 0.2);
+            transform: scale(1.01);
         }
 
-        .w-100 {
-            width: 100% !important; 
-        }
-    }
+        .btn-explore:active {
+                background-color: #ebb000 !important;
+                box-shadow: inset 0px 5px 8px rgba(15, 55, 57, 0.9);
+                transition: transform 0.3s ease-in; 
+            }
 
-    @media (min-width: 768px) and (max-width: 987px) {
-        /* Stack the sidefilter on top */
-        .container .row {
-            flex-direction: row; 
-        }
-
-        .sidefilter {
-            width: 100%; 
-            padding: 10px;
-            align-items: normal;
-        }
-
-        .col-12 {
-            margin-bottom: 15px;
-        }
-
-        .w-100 {
-            width: 100% !important; 
-        }
-
-        .image-container {
-            height: 200px;
-        }
-
-        .x7 {
-            display: flex;
-            align-items: center;
-        }
-
-        #carContainer {
-            width: 100vw;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .image-container {
-            height: 200px;
-        }
-        .card-img-top {
-            height: 200px;
-        }
-    }
-
-    @media (min-width: 768px) and (max-width: 1024px) {
-    .card {
-        font-size: small;
-    }
-
-    .card h5 {
-        font-size: medium;
-    }
-
-    .card p {
-        font-size: small;
-    }
-
-    .card .card-text span {
-        font-size: medium !important;
-    }
-
-    .card .btn {
-        font-size: small;
-    }
-
-    .card .btn-explore {
-        height: 34px;
-    }
-}
-
-
-    .txt-color{
-        color: crimson;
-    }
-
-    .btn-explore {
-        background-color: #fac623;
-        /* margin-top: -10px; */
-        position: relative;
-        height: 38px;
-        top: 5px;
-    }
-
-    .btn-explore:hover {
-        background-color: #ebb000;
-        box-shadow: inset 0px 5px 8px rgba(0, 0, 0, 0.5), inset 0px -8px 8px rgba(255, 255, 255, 0.2);
-        transform: scale(1.01);
-    }
-
-    .btn-explore:active {
-            background-color: #ebb000 !important;
-            box-shadow: inset 0px 5px 8px rgba(15, 55, 57, 0.9);
-            transition: transform 0.3s ease-in; 
-        }
-
-    /* Start Footer */
-    footer {
-        background-color: #f2f2f2;
-        color: #101010;
-        text-align: center;
-        padding: 45px;
-        width: 100%;
-    }
-
-    footer a {
-        display: inline-block;
-        text-decoration: none;
-        color: #101010;
-        margin: 10px;
-        padding: 10px;
-        border-radius: 50%;
-    }
-
-    footer a:hover {
-        border: 1px solid rgb(207, 212, 178);
-        color: crimson;
-    }
-
-    /* End Footer */
-
-    /* SideKick CSS */
-    .sidebark {
-        position: fixed;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 60px;
-        height: auto;
-        background: rgba(26, 26, 26, 0.9);
-        border-radius: 10px 0 0 10px;
-        transition: width 0.3s ease;
-        overflow: hidden;
-        box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.5);
-        z-index: 9999;
-        }
-
-        .sidebark:hover {
-            width: 200px;
-        }
-
-        .sidebark a {
-            display: flex;
-            align-items: center;
-            color: white;
-            padding: 15px;
-            text-decoration: none;
-            transition: background 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .sidebark a:hover {
-            background: crimson;
+        /* Start Footer */
+        footer {
+            background-color: #f2f2f2;
             color: #101010;
+            text-align: center;
+            padding: 45px;
+            width: 100%;
         }
 
-        .sidebark a i {
-            font-size: 20px;
-            margin-right: 15px;
+        footer a {
+            display: inline-block;
+            text-decoration: none;
+            color: #101010;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 50%;
         }
 
-        .sidebark span {
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        footer a:hover {
+            border: 1px solid rgb(207, 212, 178);
+            color: crimson;
         }
 
-        .sidebark:hover span {
-            opacity: 1;
-        }
+        /* End Footer */
 
-    /* End Sidekick */
+        /* SideKick CSS */
+        .sidebark {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: auto;
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 10px 0 0 10px;
+            transition: width 0.3s ease;
+            overflow: hidden;
+            box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            }
+
+            .sidebark:hover {
+                width: 200px;
+            }
+
+            .sidebark a {
+                display: flex;
+                align-items: center;
+                color: white;
+                padding: 15px;
+                text-decoration: none;
+                transition: background 0.3s ease;
+                white-space: nowrap;
+            }
+
+            .sidebark a:hover {
+                background: crimson;
+                color: #101010;
+            }
+
+            .sidebark a i {
+                font-size: 20px;
+                margin-right: 15px;
+            }
+
+            .sidebark span {
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .sidebark:hover span {
+                opacity: 1;
+            }
+
+        /* End Sidekick */
 
     </style>
+    
     <script>
         let allCars = <?php echo json_encode($cars); ?>;
         // [
