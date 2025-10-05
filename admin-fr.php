@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$username = "root";
+$username = "supcar";
 $password = "";
-$dbname = "supercar";
+$dbname = "supercar_admin";
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $dbname);
