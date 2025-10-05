@@ -1,6 +1,6 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "form_inscription");
 session_start();
+require_once 'client_dbconnect.php';
 ?>
 
 <!-- navbar.php -->
