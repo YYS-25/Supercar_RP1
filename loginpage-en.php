@@ -199,5 +199,5 @@ include('navbar-en.php');
 </html>
 
 <?php
-$conn->close();
+$bdd->close();
 ?>

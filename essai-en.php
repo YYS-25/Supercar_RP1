@@ -1,5 +1,4 @@
 <?php
-
 include('navbar-en.php');
 
 // If user is NOT logged in, save redirect path & send them to login page
@@ -850,5 +849,5 @@ function showPopup(message) {
 </html>
 
 <?php
-$conn->close();
+$bdd->close();
 ?>

@@ -394,5 +394,5 @@ function showPopup(message) {
 </html>
 
 <?php
-$conn->close();
+$bdd->close();
 ?>
