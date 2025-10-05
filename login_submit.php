@@ -10,16 +10,16 @@ $username = $_POST['username'] ?? '';
 $password = $_POST['password'] ?? '';
 
 // Prevent SQL injection
-$username = $conn->real_escape_string($username);
-$password = $conn->real_escape_string($password);
+$username = $bdd->real_escape_string($username);
+$password = $bdd->real_escape_string($password);
 
 // Check if user exists
 // $sql = "SELECT id, password FROM users WHERE username = '$username'";
-// $result = $conn->query($sql);
+// $result = $bdd->query($sql);
 
 // ✅ Check if user exists
 $sql = "SELECT id, prenom, nom, username, email, phone, password FROM users WHERE username='$username' OR email='$username'";
-$result = $conn->query($sql);
+$result = $bdd->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
@@ -53,5 +53,5 @@ if ($result->num_rows > 0) {
 
 }
 
-$conn->close();
+$bdd->close();
 ?>
