@@ -3,10 +3,7 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$conn = new mysqli("localhost", "root", "", "form_inscription");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once 'client_dbconnect.php';
 
 // Get user input
 $username = $_POST['username'] ?? '';
@@ -27,6 +24,9 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     
+    //if you have to hash the password, use password_verify function, instead of if ($password === $row['password']) {
+    // -->if (password_verify($password, $row['password'])) { <--
+
     if ($password === $row['password']) {  // Direct comparison (no hashing)
         // $_SESSION['user_id'] = $row['id'];
         // $_SESSION['username'] = $username;
