@@ -1,9 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli("localhost", "root", "", "form_inscription");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once 'client_dbconnect.php';
 
 $prenom = $_POST['prenom'];
 $nom = $_POST['nom'];
@@ -19,10 +16,10 @@ if ($password !== $confirm_password) {
 }
 
 $sql = "INSERT INTO users (prenom, nom, username, email, phone, password) VALUES ('$prenom', '$nom', '$username', '$email', '$phone', '$password')";
-if ($conn->query($sql) === TRUE) {
+if ($bdd->query($sql) === TRUE) {
 
        // ✅ Store user session (auto-login after signup)
-       $_SESSION['user_id'] = $conn->insert_id;  // Get the last inserted user ID
+       $_SESSION['user_id'] = $bdd->insert_id;  // Get the last inserted user ID
        $_SESSION['prenom'] = $prenom;
        $_SESSION['nom'] = $nom;
        $_SESSION['username'] = $username;
@@ -32,8 +29,8 @@ if ($conn->query($sql) === TRUE) {
     header("Location: essai-fr.php");
     exit();
 } else {
-    echo "Error: " . $conn->error;
+    echo "Error: " . $bdd->error;
 }
 
-$conn->close();
+$bdd->close();
 ?>

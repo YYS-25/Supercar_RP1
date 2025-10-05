@@ -1,4 +1,5 @@
 // List of available cars
+// sa = bn loto dn zfr lao la, si bzn
 const allCars = [
     { make: "Aston Martin", model: "DB12 Volante" },
     { make: "Aston Martin", model: "DBX" },
