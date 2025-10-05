@@ -1,23 +1,14 @@
 <?php 
+include 'client_dbconnect.php';
 
-$host = "localhost";
-$login = "root";    
-$pass = "";           
-$dbname = "formulaire_de_contacte";  
+$first_name = $_POST["first_name"];
+$last_name = $_POST["last_name"];
+$email = $_POST["email"];
+$phone = $_POST["phone"];
+$comment = $_POST["comment"];
 
-
-$bdd = mysqli_connect($host, $login, $pass, $dbname);
-
-    mysqli_set_charset($bdd,"utf8");
-
-    $first_name = $_POST["first_name"];
-    $last_name = $_POST["last_name"];
-    $email = $_POST["email"];
-    $phone = $_POST["phone"];
-    $comment = $_POST["comment"];
-
-    $ajouter = "INSERT INTO table_de_contacte (first_name, last_name, email, phone, comment) 
-                VALUES ('$first_name', '$last_name', '$email', '$phone', '$comment')";
+$ajouter = "INSERT INTO table_de_contacte (first_name, last_name, email, phone, comment) 
+            VALUES ('$first_name', '$last_name', '$email', '$phone', '$comment')";
 
 if (mysqli_query($bdd, $ajouter)) {
     echo "
