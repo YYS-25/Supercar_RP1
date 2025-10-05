@@ -1,17 +1,11 @@
 <?php
 header("Content-Type: application/json"); // Ensure JSON response
 
-$servername = "localhost";
-$username = "root"; // Change if necessary
-$password = ""; // Change if necessary
-$database = "test_drive";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+require_once 'client_dbconnect.php';
 
 // Check connection
-if ($conn->connect_error) {
-    echo json_encode(["status" => "error", "message" => "Database connection failed: " . $conn->connect_error]);
+if ($bdd->connect_error) {
+    echo json_encode(["status" => "error", "message" => "Database connection failed: " . $bdd->connect_error]);
     exit();
 }
 
@@ -45,11 +39,11 @@ if (empty($last_name) || empty($first_name) || empty($email) || empty($phone) ||
 $sql = "INSERT INTO testdrive_request (last_name, first_name, email, phone, brand, model, request_date, request_time, comments) 
         VALUES ('$last_name', '$first_name', '$email', '$phone', '$brand', '$model', '$request_date', '$request_time', '$comments')";
 
-if ($conn->query($sql) === TRUE) {
+if ($bdd->query($sql) === TRUE) {
     echo json_encode(["status" => "success", "message" => "✅ Request sent successfully!"]);
 } else {
-    echo json_encode(["status" => "error", "message" => "❌ Database error: " . $conn->error]);
+    echo json_encode(["status" => "error", "message" => "❌ Database error: " . $bdd->error]);
 }
 
-$conn->close();
+$bdd->close();
 ?>
