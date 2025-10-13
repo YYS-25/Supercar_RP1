@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";
-$login = "supcar";
-$pass = "";
-$dbname = "supercar_client";
+$host = "mysql-site-supercar.alwaysdata.net";
+$login = "435049";
+$pass = "CDS@h8.jf#L7G3X";
+$dbname = "site-supercar_client";
 
 $bdd = mysqli_connect($host, $login, $pass, $dbname);
 
