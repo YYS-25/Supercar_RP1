@@ -217,7 +217,7 @@ include('admin-en.php');
                 <div class="service-label"><?php echo fetchContent('acceuil_en', 'service3'); ?></div>
             </div>
         </div><br />
-        <a href="Services-en.php" class="btn btn-dark">See All Services</a>
+        <a href="services-en.php" class="btn btn-dark">See All Services</a>
     </section>
 
 <hr>
