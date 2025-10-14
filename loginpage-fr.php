@@ -157,7 +157,7 @@ include('navbar-fr.php');
             </div>
             <input type="submit" value="Connexion" class="submit-btn">
         </form>            
-        <a href="signup-fr.php" class="forgot-password">Créer un compte?</a>
+        <a href="Signup-fr.php" class="forgot-password">Créer un compte?</a>
     </div>
 </div>
 <br /><br />
