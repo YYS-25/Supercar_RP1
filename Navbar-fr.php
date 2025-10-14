@@ -88,7 +88,7 @@ require_once 'client_dbconnect.php';
                               </button>
                               <ul class="dropdown-menu dropdown-menu1" aria-labelledby="userDropdown">
                                 <li><a class="dropdown-item1" href="loginpage-fr.php">Se Connecter</a></li>
-                                <li><a class="dropdown-item1" href="SignUp-fr.php">S\'inscrire</a></li>
+                                <li><a class="dropdown-item1" href="signup-fr.php">S\'inscrire</a></li>
                               </ul>';
                     }
                 ?>

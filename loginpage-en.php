@@ -157,7 +157,7 @@ include('navbar-en.php');
             </div>
             <input type="submit" value="Connect" class="submit-btn">
         </form>            
-        <a href="Signup-en.php" class="forgot-password">Create an Account?</a>
+        <a href="signup-en.php" class="forgot-password">Create an Account?</a>
     </div>
 </div>
 <br /><br />
