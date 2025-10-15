@@ -2,7 +2,7 @@
 $host = "mysql-site-supercar.alwaysdata.net";
 $login = "435049";
 $pass = "CDS@h8.jf#L7G3X";
-$dbname = "site-supercar_client";
+$dbname = "site-supercar_db";
 
 $bdd = mysqli_connect($host, $login, $pass, $dbname);
 

@@ -1,11 +1,11 @@
 <?php
-$host = "localhost";
-$username = "supcar";
-$password = "";
-$dbname = "supercar_admin";
+$host = "mysql-site-supercar.alwaysdata.net";
+$login = "435049";
+$pass = "CDS@h8.jf#L7G3X";
+$dbname = "site-supercar_db";
 
 // Create connection
-$conn = new mysqli($host, $username, $password, $dbname);
+$conn = new mysqli($host, $login, $pass, $dbname);
 
 // Check connection
 if ($conn->connect_error) {

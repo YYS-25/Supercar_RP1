@@ -2,7 +2,7 @@
 $host = "mysql-site-supercar.alwaysdata.net";
 $username = "435049";
 $password = "CDS@h8.jf#L7G3X";
-$dbname = "site-supercar_admin";
+$dbname = "site-supercar_db";
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $dbname);
