@@ -940,6 +940,9 @@ function displayCars(cars) {
             );
 
             displayCars(filtered);
+            
+            // If need be to filter cars by price, may have to change in db as well
+            // price is currently VARCHAR(10) (you store strings like €275,000). If you need numeric sorting/filters, add price_value DECIMAL(12,2) and keep price (string) for display. Populate price_value by stripping non-digits.
         }
 
         
