@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include 'dbconnect.php';
 
 $first_name = $_POST["first_name"];
