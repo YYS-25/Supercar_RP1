@@ -3,7 +3,7 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'client_dbconnect.php';
+require_once 'dbconnect.php';
 
 // Get user input
 $username = $_POST['username'] ?? '';

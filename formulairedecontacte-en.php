@@ -1,14 +1,22 @@
 <?php 
-include 'client_dbconnect.php';
+include 'dbconnect.php';
 
 $first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
 $email = $_POST["email"];
 $phone = $_POST["phone"];
 $comment = $_POST["comment"];
+$user_id = $_SESSION['user_id'] ?? 'NULL'; //if logged in, get user_id, else NULL
 
-$ajouter = "INSERT INTO table_de_contacte (first_name, last_name, email, phone, comment) 
-            VALUES ('$first_name', '$last_name', '$email', '$phone', '$comment')";
+// Sanitize inputs
+$first_name = mysqli_real_escape_string($bdd, $first_name);
+$last_name  = mysqli_real_escape_string($bdd, $last_name);
+$email      = mysqli_real_escape_string($bdd, $email);
+$phone      = mysqli_real_escape_string($bdd, $phone);
+$comment    = mysqli_real_escape_string($bdd, $comment);
+
+$ajouter = "INSERT INTO table_de_contacte (first_name, last_name, email, phone, comment, user_id) 
+            VALUES ('$first_name', '$last_name', '$email', '$phone', '$comment', " . ($user_id === 'NULL' ? 'NULL' : (int)$user_id) . ")"; //Cast user_id to int if not NULL
 
 if (mysqli_query($bdd, $ajouter)) {
     echo "

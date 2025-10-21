@@ -1,7 +1,7 @@
 <?php
 header("Content-Type: application/json"); // Ensure JSON response
 
-require_once 'client_dbconnect.php';
+require_once 'dbconnect.php';
 
 // Check connection
 if ($bdd->connect_error) {

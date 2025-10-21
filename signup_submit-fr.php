@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'client_dbconnect.php';
+require_once 'dbconnect.php';
 
 $prenom = $_POST['prenom'];
 $nom = $_POST['nom'];
