@@ -1,5 +1,6 @@
 <?php
 header("Content-Type: application/json"); // Ensure JSON response
+session_start();
 
 require_once 'dbconnect.php';
 
@@ -28,6 +29,9 @@ $model = $_POST['model'] ?? '';
 $request_date = $_POST['request_date'] ?? '';
 $request_time = $_POST['request_time'] ?? '';
 $comments = $_POST['comments'] ?? '';
+$user_id = $_SESSION['user_id'] ?? 'NULL'; //if logged in, get user_id, else NULL
+$$voiture_id = isset($_POST['voiture_id']) && is_numeric($_POST['voiture_id']) ? (int)$_POST['voiture_id'] : 'NULL'; //if selected, get voiture_id as int, else NULL
+$status = "Pending";
 
 // Debugging: Check if data is empty
 if (empty($last_name) || empty($first_name) || empty($email) || empty($phone) || empty($brand) || empty($model) || empty($request_date) || empty($request_time)) {
@@ -36,8 +40,8 @@ if (empty($last_name) || empty($first_name) || empty($email) || empty($phone) ||
 }
 
 // Insert into database
-$sql = "INSERT INTO testdrive_request (last_name, first_name, email, phone, brand, model, request_date, request_time, comments) 
-        VALUES ('$last_name', '$first_name', '$email', '$phone', '$brand', '$model', '$request_date', '$request_time', '$comments')";
+$sql = "INSERT INTO testdrive_request (last_name, first_name, email, phone, brand, model, request_date, request_time, comments, user_id, voiture_id) 
+        VALUES ('$last_name', '$first_name', '$email', '$phone', '$brand', '$model', '$request_date', '$request_time', '$comments', " . ($user_id === 'NULL' ? 'NULL' : (int)$user_id) . ", " . ($voiture_id === 'NULL' ? 'NULL' : (int)$voiture_id) . ")";
 
 if ($bdd->query($sql) === TRUE) {
     echo json_encode(["status" => "success", "message" => "✅ Votre demande a été envoyée!"]);
