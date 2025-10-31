@@ -22,7 +22,7 @@
         <small>
             This website is a school project for educational purposes only.  
             All data and content are fictional. <br>
-            Ce site est un projet scolaire à des fins pédagogiques - données et contenus fictifs.
+            Ce site est un projet scolaire à des fins pédagogiques. Toutes les données et les contenus sont fictifs.
         </small>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
