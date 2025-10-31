@@ -1,8 +1,6 @@
 <?php
 header("Content-Type: application/json"); // Ensure JSON response
 session_start();
-error_log("voiture_id received: " . print_r($_POST['voiture_id'], true)); //to remove after debugging
-
 
 require_once 'dbconnect.php';
 
@@ -55,7 +53,6 @@ if (empty($brand) || empty($model) || empty($request_date) || empty($request_tim
     echo json_encode(["status" => "error", "message" => "❌ All fields are required"]);
     exit();
 }
-error_log("voiture_id received: " . print_r($voiture_id, true));
 
 // Insert into database
 $sql = "INSERT INTO testdrive_request (brand, model, request_date, request_time, comments, user_id, voiture_id, status) 

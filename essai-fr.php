@@ -1,5 +1,4 @@
 <?php
-
 include('navbar-fr.php');
 
 // If user is NOT logged in, save redirect path & send them to login page
@@ -8,6 +7,9 @@ if (!isset($_SESSION['user_id'])) {
     if (isset($_GET['make']) && isset($_GET['model'])) {
         $_SESSION['selected_make'] = $_GET['make'];
         $_SESSION['selected_model'] = $_GET['model'];
+    }
+    if (isset($_GET['id'])) {
+        $_SESSION['voiture_id'] = (int)$_GET['id'];
     }
 $_SESSION['redirect_to'] = $currentUrl;
     header("Location: loginpage-fr.php"); // Redirect to login
@@ -24,8 +26,12 @@ $carModel = isset($_GET['model'])
     ? htmlspecialchars($_GET['model']) 
     : (isset($_SESSION['selected_model']) ? $_SESSION['selected_model'] : '');
 
+$voiture_id = isset($_GET['id']) 
+    ? (int)$_GET['id'] 
+    : (isset($_SESSION['voiture_id']) ? (int)$_SESSION['voiture_id'] : NULL);
+
 //Clearing cache-session values
-unset($_SESSION['selected_make'], $_SESSION['selected_model']);
+unset($_SESSION['selected_make'], $_SESSION['selected_model'], $_SESSION['voiture_id']);
 ?>
 
 
@@ -631,6 +637,10 @@ unset($_SESSION['selected_make'], $_SESSION['selected_model']);
             transition: border-color .15sease-in-out, box-shadow .15sease-in-out;
         }
 
+        .form-control1:disabled {
+            background-color: #dddee0ff;
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -654,21 +664,21 @@ unset($_SESSION['selected_make'], $_SESSION['selected_model']);
             <div class="row mb-3">
                 <div class="col-md-6">
                     <input type="text" class="form-control1" name="last_name" placeholder="Nom"
-                    value="<?php echo isset($_SESSION['nom']) ? htmlspecialchars($_SESSION['nom']) : ''; ?>" required>
+                    value="<?php echo isset($_SESSION['nom']) ? htmlspecialchars($_SESSION['nom']) : ''; ?>" disabled>
                 </div>
                 <div class="col-md-6">
                     <input type="text" class="form-control1" name="first_name" placeholder="Prénom" 
-                    value="<?php echo isset($_SESSION['prenom']) ? htmlspecialchars($_SESSION['prenom']) : ''; ?>" required>
+                    value="<?php echo isset($_SESSION['prenom']) ? htmlspecialchars($_SESSION['prenom']) : ''; ?>" disabled>
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col-md-6">
                     <input type="email" class="form-control1" name="email" placeholder="Courriel" 
-                    value="<?php echo isset($_SESSION['email']) ? htmlspecialchars($_SESSION['email']) : ''; ?>" required>
+                    value="<?php echo isset($_SESSION['email']) ? htmlspecialchars($_SESSION['email']) : ''; ?>" disabled>
                 </div>
                 <div class="col-md-6">
                     <input type="tel" class="form-control1" name="phone" placeholder="Numéro de Téléphone"  
-                    value="<?php echo isset($_SESSION['phone']) ? htmlspecialchars($_SESSION['phone']) : ''; ?>" required>
+                    value="<?php echo isset($_SESSION['phone']) ? htmlspecialchars($_SESSION['phone']) : ''; ?>" disabled>
                 </div>
             </div>
             <div class="row mb-3">
@@ -692,6 +702,9 @@ unset($_SESSION['selected_make'], $_SESSION['selected_model']);
                     <option selected disabled>-Veuillez choisir le modèle souhaité-</option>
                 </select>
             </div>
+
+        <input type="hidden" name="voiture_id" value="<?php echo htmlspecialchars($voiture_id ?? '', ENT_QUOTES); ?>">
+
 
             <div class="row mb-3">
                 <div class="col-md-6">

@@ -2,13 +2,22 @@
 include('navbar-fr.php');
 include('admin-fr.php');
 
-$sql = "SELECT make, model, type, price, image FROM voiture";
+$sql = "SELECT id, make, model, type, price, image FROM voiture";
 $result = $conn->query($sql);
 
 // Fetch cars and encode them as JSON for JavaScript
 $cars = [];
 while ($row = $result->fetch_assoc()) {
     $cars[] = $row;
+
+$voiture_id = isset($_GET['id']) ? (int)$_GET['id'] : ($_SESSION['voiture_id'] ?? null);
+$make = $_GET['make'] ?? '';
+$model = $_GET['model'] ?? '';
+
+// Store in session so it persists if the user logs in mid-way
+if ($voiture_id) $_SESSION['voiture_id'] = $voiture_id;
+if ($make) $_SESSION['make'] = $make;
+if ($model) $_SESSION['model'] = $model;
 }
 ?>
 
@@ -862,6 +871,7 @@ while ($row = $result->fetch_assoc()) {
     /* End Sidekick */
 
     </style>
+    
     <script>
         let allCars = <?php echo json_encode($cars); ?>;
         // [
@@ -902,7 +912,7 @@ function displayCars(cars) {
                         <p class="card-text fw-bold">Prix:<br /> 
                             <span style="font-size: large;">${car.price}</span>
                         </p>
-                        <a href="essai-fr.php?car=${formattedModel}&make=${encodeURIComponent(car.make)}&model=${formattedModel}" 
+                        <a href="essai-fr.php?id=${car.id}&make=${encodeURIComponent(car.make)}&model=${formattedModel}" 
                            class="btn btn-explore w-60">
                             <img src="Voiture_Images/wheel1.svg" style="height:20px; position: relative; top:-2px;"> 
                             Demande D'essai
@@ -917,7 +927,6 @@ function displayCars(cars) {
         container.innerHTML += carCard;
     });
 }
-
 
         function filterCars() {
             const make = document.getElementById("filterMake").value.toLowerCase();
