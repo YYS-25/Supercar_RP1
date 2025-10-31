@@ -1,7 +1,7 @@
 <?php
-$host = "mysql-site-supercar.alwaysdata.net";
-$username = "435049";
-$password = "CDS@h8.jf#L7G3X";
+$host = "localhost";
+$username = "supcar";
+$password = "";
 $dbname = "site-supercar_db";
 
 // Create connection
