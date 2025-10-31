@@ -18,22 +18,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $id = $_POST['id'];
   $action = $_POST['action'];
 
-  if ($action == 'Approve') {
-      mysqli_query($conn, "UPDATE testdrive_request SET status='approved' WHERE id=$id");
-  } elseif ($action == 'Deny') {
-      mysqli_query($conn, "UPDATE testdrive_request SET status='denied' WHERE id=$id");
-  } elseif ($action == 'Revoir') {
-      mysqli_query($conn, "UPDATE testdrive_request SET status='pending' WHERE id=$id");
-  } elseif ($action == 'Complete') {
-      mysqli_query($conn, "UPDATE testdrive_request SET status='completed' WHERE id=$id");
+  if ($action == 'approve') {
+      mysqli_query($conn, "UPDATE testdrive_request SET status='Approved' WHERE id=$id");
+  } elseif ($action == 'deny') {
+      mysqli_query($conn, "UPDATE testdrive_request SET status='Denied' WHERE id=$id");
+  } elseif ($action == 'revoir') {
+      mysqli_query($conn, "UPDATE testdrive_request SET status='Pending' WHERE id=$id");
+  } elseif ($action == 'complete') {
+      mysqli_query($conn, "UPDATE testdrive_request SET status='Completed' WHERE id=$id");
   }
 }
 
 // Récupérer les données
-$pending = mysqli_query($conn, "SELECT * FROM testdrive_request WHERE status IS NULL OR status = 'Pending'");
-$approved = mysqli_query($conn, "SELECT * FROM testdrive_request WHERE status = 'Approved'");
-$denied = mysqli_query($conn, "SELECT * FROM testdrive_request WHERE status = 'Denied'");
-$completed = mysqli_query($conn, "SELECT * FROM testdrive_request WHERE status = 'Completed'"); 
+$baseQuery = "
+    SELECT 
+        t.id, t.brand, t.model, t.request_date, t.request_time, t.comments, t.status,
+        u.prenom, u.nom, u.email, u.phone
+    FROM testdrive_request t
+    LEFT JOIN users u ON t.user_id = u.id
+";
+
+$pending   = mysqli_query($conn, $baseQuery . " WHERE t.status IS NULL OR t.status = 'Pending'");
+$approved  = mysqli_query($conn, $baseQuery . " WHERE t.status = 'Approved'");
+$denied    = mysqli_query($conn, $baseQuery . " WHERE t.status = 'Denied'");
+$completed = mysqli_query($conn, $baseQuery . " WHERE t.status = 'Completed'");
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +106,7 @@ $completed = mysqli_query($conn, "SELECT * FROM testdrive_request WHERE status =
             <div class="col-md-6">
                 <div class="request-card">
                     <div class="request-header">
-                        <?= $row['first_name'] . ' ' . $row['last_name'] ?> - <?= $row['brand'] ?> <?= $row['model'] ?>
+                        <?= $row['prenom'] . ' ' . $row['nom'] ?> - <?= $row['brand'] ?> <?= $row['model'] ?>
                     </div>
                     <div class="request-body mt-2">
                         <p><strong>Courriel :</strong> <?= $row['email'] ?></p>
@@ -123,7 +131,7 @@ $completed = mysqli_query($conn, "SELECT * FROM testdrive_request WHERE status =
             <div class="col-md-6">
                 <div class="request-card border-success">
                     <div class="request-header text-success">
-                        <?= $row['first_name'] . ' ' . $row['last_name'] ?> - <?= $row['brand'] ?> <?= $row['model'] ?>
+                        <?= $row['prenom'] . ' ' . $row['nom'] ?> - <?= $row['brand'] ?> <?= $row['model'] ?>
                     </div>
                     <div class="request-body mt-2">
                         <p><strong>Courriel :</strong> <?= $row['email'] ?></p>
@@ -149,7 +157,7 @@ $completed = mysqli_query($conn, "SELECT * FROM testdrive_request WHERE status =
             <div class="col-md-6">
                 <div class="request-card border-danger">
                     <div class="request-header text-danger">
-                        <?= $row['first_name'] . ' ' . $row['last_name'] ?> - <?= $row['brand'] ?> <?= $row['model'] ?>
+                        <?= $row['prenom'] . ' ' . $row['nom'] ?> - <?= $row['brand'] ?> <?= $row['model'] ?>
                     </div>
                     <div class="request-body mt-2">
                         <p><strong>Courriel :</strong> <?= $row['email'] ?></p>
@@ -175,7 +183,7 @@ $completed = mysqli_query($conn, "SELECT * FROM testdrive_request WHERE status =
             <div class="col-md-6">
                 <div class="request-card border-primary">
                     <div class="request-header text-primary">
-                        <?= $row['first_name'] . ' ' . $row['last_name'] ?> - <?= $row['brand'] ?> <?= $row['model'] ?>
+                        <?= $row['prenom'] . ' ' . $row['nom'] ?> - <?= $row['brand'] ?> <?= $row['model'] ?>
                     </div>
                     <div class="request-body mt-2">
                         <p><strong>Courriel :</strong> <?= $row['email'] ?></p>
