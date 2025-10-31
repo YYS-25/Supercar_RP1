@@ -237,24 +237,7 @@ include('admin-en.php');
     <!-- End Sidekick -->
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Supercar. All rights reserved.</p>
-        <a href="https://www.facebook.com/" target="_blank" class="fab fa-facebook" style="margin: 0 10px;"></a>
-        <a href="https://x.com/i/flow/login" target="_blank" class="fab fa-twitter" style=" margin: 0 10px;"></a>
-        <a href="https://www.instagram.com/accounts/login/" target="_blank" class="fab fa-instagram" style=" margin: 0 10px;"></a>
-        <a href="mailto:contact@supercarweb.com" class="fa-solid fa-envelope" style=" margin: 0 10px;"></a>
-        <a href="#top" id="scrollToTop" class="fa-solid fa-arrow-up"></a>
-    </footer>
-
-    <script>
-        document.getElementById("scrollToTop").addEventListener("click", function (e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-    </script>
+   <?php include('Footer.php'); ?>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
