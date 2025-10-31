@@ -296,12 +296,6 @@ body {
                 <p style="text-align: center; white-space: pre-line; line-height: 2.5; margin-top: 0.1rem;">
                     <?= htmlspecialchars(fetchContent('contact_en', 'horaire')); ?>
                 </p>
-
-
-
-
-
-
             </div>
         </div>
     </div>
