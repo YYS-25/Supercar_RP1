@@ -1,4 +1,5 @@
 <?php
+session_name('supercar_admin_session');
 session_start();
 
 if (!isset($_SESSION['username'])) {
@@ -12,7 +13,7 @@ if (!isset($_SESSION['username'])) {
 
 
 <?php
-require_once 'dbconnect.php';
+require_once 'admin_dbconnect.php';
 
 $search = '';
 if (isset($_GET['search']) && !empty(trim($_GET['search']))) {

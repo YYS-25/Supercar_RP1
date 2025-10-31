@@ -1,5 +1,5 @@
 <?php
-require_once 'dbconnect.php';
+require_once 'admin_dbconnect.php';
 
 if (isset($_POST['id'])) {
     $id = intval($_POST['id']);

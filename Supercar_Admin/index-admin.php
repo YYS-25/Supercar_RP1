@@ -1,4 +1,5 @@
 <?php
+session_name('supercar_admin_session');
 session_start();
 
 if (!isset($_SESSION['username'])) {
@@ -12,7 +13,7 @@ if (!isset($_SESSION['username'])) {
 
 
 <?php
-require_once '../Supercar_Client/admin-en.php'; //to revert after testing
+require_once 'admin_dbconnect.php';
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());

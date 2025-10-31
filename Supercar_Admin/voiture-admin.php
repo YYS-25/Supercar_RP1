@@ -1,4 +1,5 @@
 <?php
+session_name('supercar_admin_session');
 session_start();
 
 if (!isset($_SESSION['username'])) {
