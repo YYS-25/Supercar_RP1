@@ -1100,25 +1100,8 @@ function displayCars(cars) {
 <br />
 
 <!-- Footer -->
-<footer>
-    <p>&copy; 2025 Supercar. All rights reserved.</p>
-    <a href="https://www.facebook.com/" target="_blank" class="fab fa-facebook" style=" margin: 0 10px;"></a>
-    <a href="https://x.com/i/flow/login" target="_blank" class="fab fa-twitter" style="margin: 0 10px;"></a>
-    <a href="https://www.instagram.com/accounts/login/" target="_blank" class="fab fa-instagram" style="margin: 0 10px;"></a>
-    <a href="mailto:contact@supercarweb.com" class="fa-solid fa-envelope" style=" margin: 0 10px;"></a>
-    <a href="#top" id="scrollToTop" class="fa-solid fa-arrow-up"></a>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<?php include('Footer.php'); ?>
 
-<script>
-    document.getElementById("scrollToTop").addEventListener("click", function (e) {
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-</script>
 
 </body>
 </html>

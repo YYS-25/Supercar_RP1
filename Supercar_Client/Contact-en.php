@@ -310,14 +310,8 @@ body {
 </div>
 
 <!-- Footer -->
-<footer>
-    <p>&copy; 2025 Supercar. All rights reserved.</p>
-    <a href="https://www.facebook.com/" target="_blank" class="fab fa-facebook" style="margin: 0 10px;"></a>
-    <a href="https://x.com/i/flow/login" target="_blank" class="fab fa-twitter" style=" margin: 0 10px;"></a>
-    <a href="https://www.instagram.com/accounts/login/" target="_blank" class="fab fa-instagram" style=" margin: 0 10px;"></a>
-    <a href="mailto:contact@supercarweb.com" class="fa-solid fa-envelope" style=" margin: 0 10px;"></a>
-    <a href="#top" id="scrollToTop" class="fa-solid fa-arrow-up"></a>
-</footer>
+<?php include('Footer.php'); ?>
+
 
 <script>
     document.getElementById("scrollToTop").addEventListener("click", function (e) {
