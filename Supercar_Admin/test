@@ -1,0 +1,32 @@
+<div class="login-container">
+        <h2>Bienvenue!</h2>
+        <form id="loginForm" action="login.php" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" id="username" name="username" placeholder="nom d'utilisateur" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="courriel" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" name="password" placeholder="mot de passe" required>
+            </div>
+            <button type="submit" class="btn-login">Connexion</button>
+        </form>
+        
+        <a href="reset-admin-password.php" class="forgot-password">Mot de passe oublié?</a>
+    </div>
+
+
+
+
+    //anavbar namespace
+    <div class="navbar-right dropdown">
+        <?php if (isset($_SESSION['username'])): ?>
+            <a class="dropdown-toggle text-white" href="#" role="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none;">
+                <?= htmlspecialchars($_SESSION['username']); ?>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="logout-admin.php">Déconnexion</a>
+            </div>
+        <?php else: ?>
+            <a href="login-admin.php" class="text-white">Connexion</a>
+        <?php endif; ?>
+    </div>

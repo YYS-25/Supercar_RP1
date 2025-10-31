@@ -1,0 +1,23 @@
+<?php
+require_once 'dbconnect.php';
+
+$id = $_POST['id'];
+$username = $_POST['username'];
+$email = $_POST['email'];
+
+// Prepare the SQL query to update the user
+$sql = "UPDATE users SET username = ?, email = ? WHERE id = ?";
+
+// Use prepared statements to prevent SQL injection
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ssi", $username, $email, $id); // "ssi" means string, string, integer
+
+if ($stmt->execute()) {
+    echo json_encode(['success' => true, 'message' => 'User updated successfully']);
+} else {
+    echo json_encode(['success' => false, 'message' => 'Error updating user']);
+}
+
+$stmt->close();
+$conn->close();
+?>
